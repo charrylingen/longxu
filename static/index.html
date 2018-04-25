@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <title>龙须地图正在运行</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/openlayers@4.6.4/dist/ol.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+  <link rel="stylesheet" href="./app.css" />
+
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/openlayers"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="projection.js"></script>
+  <script type="text/javascript">
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+  </script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body,td,th {
+	color: #00F;
+}
+</style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="sidenav" onfocus="MM_showHideLayers('app','','hide')">
+      <section class="section">
+        <h1><strong>龙须雷达</strong></h1>
+        <p >&nbsp;</p>
+        <p><strong><!-- <div class="field is-grouped">
+          <a class="button is-small">Button</a>
+          <a class="button is-small">Button2</a>
+        </div> -->
+        <label ><span class="has-text-info">地图:</span></label>
+        <span class="has-text-info"><br>
+        <input type="radio" id="erangel" value="erangel" v-model="mapType">
+        <label for="erangel">林子</label>
+        <input type="radio" id="miramar" value="miramar" v-model="mapType">
+        <label for="miramar">沙漠</label>
+        <br>
+        <br>
+        <label >地图选项:</label>
+        <br>
+        <input type="checkbox" id="followme" v-model="followMe">
+        <label for="followme">视角跟随</label>
+        <br>
+        <input type="checkbox" id="showbox" v-model="showBox">
+        <label for="showbox">显示盒子</label>
+        <br>
+        <input type="checkbox" id="showairdrop" v-model="showAirDrop">
+        <label for="showairdrop">显示空投</label>
+        <br>
+        <input type="checkbox" id="showcar" v-model="showCar">
+        <label for="showcar">显示载具</label>
+        <br>
+        <label v-on:dblclick="showNoItems">物品选项:</label>
+        <br>
+        <input type="checkbox" id="showitemtop" v-model="showItemTop">
+        <label for="showitemtop">3级</label>
+        <br>
+        <input type="checkbox" id="showitemduo" v-model="showItemDuoDuo">
+        <label for="showitemduo">2级</label>
+        <br>
+        <input type="checkbox" id="showitembasic" v-model="showItemBasic">
+        <label for="showitembasic">1级</label>
+        <br>
+        <input type="checkbox" id="showitemar" v-model="showItemAR">
+        <label for="showitemar">自动枪</label>
+        <br>
+        <input type="checkbox" id="showitemsr" v-model="showItemSR">
+        <label for="showitemsr">狙击枪</label>
+        <br>
+        <input type="checkbox" id="showitemhealth" v-model="showItemHealth">
+        <label for="showitemhealth">药品</label>
+        </span></strong></p>
+        <p><strong><span class="has-text-info">
+        <input type="checkbox" id="showitemthrow" v-model="showItemThrow">
+        <label for="showitemthrow">投掷<br>
+        </label>
+        <input type="checkbox" id="showitemammo" v-model="showItemAmmo">
+        <label for="showitemammo">子弹</label>
+        <br>
+        <input type="checkbox" id="showitemall" v-model="showItemAll">
+        <label for="showitemall">所有</label>
+        </span></strong>
+        </p>
+        <hr>
+        <span class="has-text-info"><a class="button is-small" @click="setFPS(30)">倍速30</a>
+        <a class="button is-small" @click="setFPS(15)">倍速15</a><a class="button is-small" @click="setFPS(60)">倍速60</a>
+        <!-- <a class="button is-small" @click="toggleRefresh">{{ toggleButtonText }}</a>
+        <br> -->
+        <br>
+        <br>
+      </span></section>
+
+    </div>
+    <div id="map"></div>
+  </div>
+
+  <span class="has-text-info">
+  <script src="app.js"></script>
+  </span>
+</body>
+
+</html>
